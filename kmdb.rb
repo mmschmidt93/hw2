@@ -266,12 +266,8 @@ puts ""
 
 roles = Role.all
 
-#= Role.where({ movie_id: Dark_Knight_Rises.id})[0]
-#actorname = Person.where({id: role.person_id})[0]
-#puts movietitle.inspect
-
 for actors in roles
-    puts "#{actors.movie_id}    #{actors.person_id}   #{actors.character_name}"
+    puts "#{actors.movie.title}    #{actors.person.name}   #{actors.character_name}"
 end
 
 
