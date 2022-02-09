@@ -250,7 +250,7 @@ puts ""
 movies = Movie.all
 
 for movie in movies
-   puts "#{movie.title}   #{movie.year_released}    #{movie.rated}  #{director}"
+   puts "#{movie.title}   #{movie.year_released}    #{movie.rated}  #{movie.director.name}"
 end
 
 # Prints a header for the cast output
@@ -261,3 +261,10 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
+
+batman = Movie.where({title: "Batman Begins"})[0]
+first_movie = batman.movie_role
+
+for roles in first_movie
+    puts "#{roles.movie_id} #{roles.person_id}   #{roles.character_name}"
+end

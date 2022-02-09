@@ -1,10 +1,15 @@
 class Movie < ApplicationRecord
 
-    #def title
+    def movie_role
         
-     #   title.where({title_id: id})
+       Role.where({movie_id: read_attribute(:id)})
 
-   # end
+   end
 
+   def director
+
+        Person.where({movie_id: read_attribute(:id)})
+
+   end
 
 end
