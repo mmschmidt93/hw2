@@ -247,10 +247,12 @@ puts ""
 # Query the movies data and loop through the results to display the movies output
 # TODO!
 
+the_director = Person.where({id: movie.person_id})[0]
+
 movies = Movie.all
 
 for movie in movies
-   puts "#{movie.title}   #{movie.year_released}    #{movie.rated}  #{movie.director.name}"
+   puts "#{movie.title}   #{movie.year_released}    #{movie.rated}  #{the_director.name}"
 end
 
 # Prints a header for the cast output
@@ -262,9 +264,30 @@ puts ""
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
 
+the_movie = Movie.where({id: role.movie_id})[0]
+
+actor = Person.where({id: role.person_id})[0]
+
 batman = Movie.where({title: "Batman Begins"})[0]
 first_movie = batman.movie_role
 
+dark_knight = Movie.where({title: "The Dark Knight"})[0]
+second_movie = dark_knight.movie_role
+
+dark_knight_rises = Movie.where({title: "The Dark Knight Rises"})[0]
+third_movie = dark_knight_rises.movie_role
+
+#batman = Movie.all
+#batman_casting = batman.movie_role
+
 for roles in first_movie
-    puts "#{roles.movie_id} #{roles.person_id}   #{roles.character_name}"
+    puts "#{the_movie.title} #{actor.name}   #{roles.character_name}"
+end
+
+for roles in second_movie
+    puts "#{the_movie.title} #{actor.name}   #{roles.character_name}"
+end
+
+for roles in third_movie
+    puts "#{the_movie.title} #{actor.name}   #{roles.character_name}"
 end

@@ -6,10 +6,4 @@ class Movie < ApplicationRecord
 
    end
 
-   def director
-
-        Person.where({movie_id: read_attribute(:id)})
-
-   end
-
 end
