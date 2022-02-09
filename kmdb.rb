@@ -269,5 +269,3 @@ roles = Role.all
 for actors in roles
     puts "#{actors.movie.title}    #{actors.person.name}   #{actors.character_name}"
 end
-
-
